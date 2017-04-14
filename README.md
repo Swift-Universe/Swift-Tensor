@@ -12,17 +12,17 @@ Creating a `Tensor` instance is pretty simple:
 ```swift
 let vector = Tensor(shape: [1, 4], elements: [1, 2, 3, 4])
 var matrix = Tensor(shape: [3, 3], element: 3)
-let tensor = Tensor(shape: [2, 2, 2]: element: 2)
+let tensor = Tensor(shape: [2, 2, 2], element: 2)
 ```
 
 ### Flexible Initialization
 
 `Tensor` structure's initializers allow flexibile initialization:
 
-* `init(shape:)`: With this initializer one just have to provide the `shape` and the initializer automatically initializes all the `elements` by placing `0` in every place.
-* `init(shape:element:)`: You must provide the initializer with the `shape` and a single `element` to initialize the `Tensor` instance by repeating `element` in all places.
-* `init(shape:elements:)`: This initializer requires the `shape` and a linear array of all the `elements` for the `Tensor` instance.
-* `init(elements:)`: The initializer requires only an array of `elements`. And the intializer sets the `shape` to number of `elements`.
+* `init(shape:)`: With this initializer one just have to provide the `shape` and the initializer automatically initializes all the `elements` by placing `0` in every place
+* `init(shape:element:)`: You must provide the initializer with the `shape` and a single `element` to initialize the `Tensor` instance by repeating `element` in all places
+* `init(shape:elements:)`: This initializer requires the `shape` and a linear array of all the `elements` for the `Tensor` instance
+* `init(elements:)`: The initializer requires only an array of `elements`. And the intializer sets the `shape` to number of `elements`
 
 
 ## Accessing Values
@@ -32,9 +32,7 @@ Swift offers a powerful feature called `subscript`. This library allows for the 
 ```swift
 visualize(matrix)
 
-/** 
-Prints
-
+/** Prints
 3 3 3
 3 3 3
 3 3 3
@@ -48,9 +46,7 @@ matrix[2, 2] = 1
 
 visualize(matrix)
 
-/** 
-Prints
-
+/** Prints
 1 3 3
 3 1 3
 3 3 1
@@ -80,9 +76,7 @@ let matrixTwo = Tensor(shape: [4, 4], element: 2)
 let result = matrixOne / matrixTwo
 visualize(result)
 
-/** 
-Prints
-
+/** Prints
 4 4 4 4 
 4 4 4 4 
 4 4 4 4 
@@ -102,10 +96,10 @@ Some important functions and properties to manipulate `Tensor` instance data are
 * `transpose`: This is a computed property called on the `Tensor` instance to return the transposed `Tensor`
 
 
-######**Important Notes** 
+#### Important Notes
 
-1. The visualize(_:) function can be helpful in testing the elements' position in the `Tensor` (matrix or vector) by visualizing them
-2. Note that it can be applied only on a matrix or vector shaped `Tensor` instance but not on more than 3-D `Tensor` because it does not make any sense
+* The visualize(_:) function can be helpful in testing the elements' position in the `Tensor` (matrix or vector) by visualizing them
+* Note that it can be applied only on a matrix or vector shaped `Tensor` instance but not on more than 3-D `Tensor` because it does not make any sense
 
 
 ## Contribution
