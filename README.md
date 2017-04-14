@@ -39,7 +39,6 @@ visualize(matrix)
 **/
 
 // Modify the `Tensor` values using subscript syntax:
-
 matrix[0, 0] = 1
 matrix[1, 1] = 1
 matrix[2, 2] = 1
