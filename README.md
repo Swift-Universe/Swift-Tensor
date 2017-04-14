@@ -105,9 +105,7 @@ Some important functions and properties to manipulate `Tensor` instance data are
 
 Contributions are welcome. Please comply with the existing coding style as it helps in easily understanding the code. For instance, `////` have been used to comment whereas `///` is used for fixing the problems in code.
 
-This project is aimed at growing by adding more features that are important to `Tensor` type of data including matrix and vector type of data also. You may pull a request to add new features or for fixing bugs. 
-
-Better and complete documentation is coming soon.
+This project is aimed at growing by adding more features that are important to `Tensor` type of data including matrix and vector type of data also. You may pull a request to add new features or for fixing bugs. Better and complete documentation is coming soon.
 
 #### We hope to grow this project into a complete tool for performing insane deep learning tasks!
 
