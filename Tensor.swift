@@ -1,13 +1,9 @@
 /**
-    Project Name - Swift-Tensor
-    File Name - Tensor.swift
+    Project - Swift-Tensor
+    File - Tensor.swift
+
     Created by Rahul Bhalley on 4/14/2017.
 **/
-
-
-///
-/// FIXED: Tensor Must Be Generic
-///
 
 ////
 //// To make `Tensor`'s generic type placeholder, T, initializable for `Array` elements.
