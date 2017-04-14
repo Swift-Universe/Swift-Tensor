@@ -76,7 +76,7 @@ struct Tensor<T: Initable & BasicMathOps> {
         return true
     }
     /**
-        Subscripts Overloading to Access Tensor Values (Settable, Gettable Computed Properties)
+        Subscript Overloading to Access Tensor Values (Settable, Gettable Computed Properties)
         - 1-D subscript
         - N-D subscript
     **/
