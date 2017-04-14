@@ -1,6 +1,6 @@
 # Swift Tensor
 
-###### About Tensor.swift
+###### Tensor.swift
 
 This is a lightweight library written in Swift for offering `Tensor` data type. It was designed for simplicity in `Tensor` data manipulation. This library offers high level of flexibility in initializing the `Tensor` instance. And the `subscript` feature of Apple Swift makes it easy to access the data of `Tensor` instance. Many matrix and vector based functions are also provided to do some important specific operations on the data. 
 
@@ -96,7 +96,7 @@ Some important functions and properties to manipulate `Tensor` instance's data a
 
 ## Contribution
 
-Contributions are welcome. Please maintain integrity with the existing coding style in this project as it helps in easily understanding the code such as `////` have been used to comment whereas `///` is used for fixing the problems in code.
+Contributions are welcome. Please comply with the existing coding style as it helps in easily understanding the code. For instance, `////` have been used to comment whereas `///` is used for fixing the problems in code.
 
 This project is aimed at growing by adding more features that are important to `Tensor` type of data including matrix and vector type of data also. You may pull a request to add new features or for fixing bugs. 
 
