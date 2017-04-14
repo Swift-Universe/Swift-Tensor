@@ -34,7 +34,6 @@ Swift offers a powerful feature called `subscript`. And in this library the basi
 visualize(matrix)
 
 /* Prints
-
 3 3 3
 3 3 3
 3 3 3
@@ -51,7 +50,6 @@ matrix[2, 2] = 1
 visualize(matrix)
 
 /* Prints
-
 1 3 3
 3 1 3
 3 3 1
@@ -88,3 +86,16 @@ visualize(resultingMatrix)
 * `matrixProduct(_:_:)`: It takes 2 matrix shaped `Tensor` instances as parameters and returns the resulting multiplied matrix `Tensor`.
 * `visualize(_:)`: It takes 1 matrix or vector shaped `Tensor` instance and gives its visualization by printing it. It can be helpful in testing the elements' position in the `Tensor` by visualizing it.
 * `transpose`: This is a computed property called on the `Tensor` instance to return the transposed `Tensor`. Note that it can be applied only on a matrix or vector shaped `Tensor` instance but not on more than 3-D `Tensor` because it does not make any sense.
+
+
+## Contribution
+
+Contributions are most welcome. Please maintain integrity with the existing coding style in this project as it helps in easily understanding the code such as `////` have been used to comment whenreas `///` is used for fixing the problems in code. Better documentation is coming soon...
+
+This project is aimed at growing by adding more features that are important to `Tensor` type of data including matrix and vector type of data also. You may pull a request to add new features or for fixing bugs.
+
+#### We hope to grow this project into a complete tool for doing deep learning tasks!
+
+## Contact 
+
+You may contact me directly at [rahulbhalley@icloud.com](rahulbhalley@icloud.com). 
