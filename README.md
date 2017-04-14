@@ -10,9 +10,9 @@ This is a lightweight library written in Swift for offering `Tensor` data type. 
 Creating a `Tensor` is simple:
 
 ```swift
-var vector = Tensor(shape: [1, 4], elements: [1, 2, 3, 4])
-var matrix = Tensor(shape: [3, 3], element: 3)
-var tensor = Tensor(shape: [2, 2, 2]: element: 2)
+let vector = Tensor(shape: [1, 4], elements: [1, 2, 3, 4])
+let matrix = Tensor(shape: [3, 3], element: 3)
+let tensor = Tensor(shape: [2, 2, 2]: element: 2)
 ```
 
 ### Flexible Initialization
@@ -31,7 +31,9 @@ Swift offers a powerful feature called `subscript`. And in this library the basi
 ```swift
 visualize(matrix)
 
-/** Prints
+/** 
+Prints
+
 3 3 3
 3 3 3
 3 3 3
@@ -47,7 +49,9 @@ matrix[2, 2] = 1
 
 visualize(matrix)
 
-/** Prints
+/** 
+Prints
+
 1 3 3
 3 1 3
 3 3 1
@@ -71,13 +75,15 @@ Some basic binary operators that perform element-wise operations are listed belo
 **Note**: The `*` operator does element-wise multiplication of `Tensor` instances. For matrix multiplication use `matrixProduct(_:_:)` function.
 
 ```swift
-let matrix = Tensor(shape: [4, 4], element: 8)
-let anotherMatrix = Tensor(shape: [4, 4], element: 2)
+let matrixOne = Tensor(shape: [4, 4], element: 8)
+let matrixTwo = Tensor(shape: [4, 4], element: 2)
 
-let result = matrix / anotherMatrix
+let result = matrixOne / matrixTwo
 visualize(result)
 
-/** Prints
+/** 
+Prints
+
 4 4 4 4 
 4 4 4 4 
 4 4 4 4 
