@@ -66,41 +66,20 @@ In addition to flexiblity in initialization, the `Tensor` also provides some use
 ### Basic Binary Operators
 
 Some basic binary operators that perform element-wise operations are listed below:
-* `+`: It performs addition on 2 `Tensor` instances
-* `-`: It performs subtraction on 2 `Tensor` instances
-* `*`: It performs multiplication on 2 `Tensor` instances.
-* `/`: It performs division between 2 `Tensor` instances
+* `+`: It performs addition on two `Tensor` instances
+* `-`: It performs subtraction on two `Tensor` instances
+* `*`: It performs multiplication on two `Tensor` instances.
+* `/`: It performs division between two `Tensor` instances
 
 Note that `*` operator does element-wise multiplication of `Tensor` instances. For matrix multiplication use `matrixProduct(_:_:)` function.
 
 ```
-let matrix = Tensor(shape: [2, 2], element: 4)
-let anotherMatrix = Tensor(shape: [2, 2], element: 2)
+let matrix = Tensor(shape: [4, 4], element: 8)
+let anotherMatrix = Tensor(shape: [4, 4], element: 2)
 
-let sum = matrix + anotherMatrix
-let product = matrix * anotherMatrix
-let difference = matrix - anotherMatrix
-let dividedResult = matrix / anotherMatrix
+let resultingMatrix = matrix / anotherMatrix
 
-let results = [sum, product, difference, dividedResult]
-for result in results {
-    visualize(result)
-    print("")
-}
-
-/* Prints
-
-6 6 
-6 6 
-
-8 8 
-8 8 
-
-2 2 
-2 2 
-
-2 2 
-2 2
+visualize(resultingMatrix)
 */
 ```
 
