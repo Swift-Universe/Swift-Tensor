@@ -107,7 +107,7 @@ Contributions are welcome. Please comply with the existing coding style as it he
 
 This project is aimed at growing by adding more features that are important to `Tensor` type of data including matrix and vector type of data also. You may pull a request to add new features or for fixing bugs. Better and complete documentation is coming soon.
 
-#### We hope to grow this project into a complete tool for performing insane deep learning tasks!
+#### We hope to grow this project into a complete tool as a helper library for deep learning tasks!
 
 ## Contact 
 
