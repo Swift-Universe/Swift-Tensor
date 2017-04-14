@@ -9,7 +9,7 @@ This is a lightweight library written in Swift for offering `Tensor` data type. 
 
 Creating a `Tensor` is simple:
 
-```
+```swift
 var vector = Tensor(shape: [1, 4], elements: [1, 2, 3, 4])
 var matrix = Tensor(shape: [3, 3], element: 3)
 var tensor = Tensor(shape: [2, 2, 2]: element: 2)
@@ -28,7 +28,7 @@ var tensor = Tensor(shape: [2, 2, 2]: element: 2)
 
 Swift offers a powerful feature called `subscript`. And in this library the basic `subscript` syntax is be used to access and modify the values present inside the `Tensor` instance. The multidimensional data is accessed using multiple subscript parameters separated by comma, ranging from 1 dimension to N dimensions `Tensor`, as follows:
 
-```
+```swift
 visualize(matrix)
 
 /** Prints
@@ -40,7 +40,7 @@ visualize(matrix)
 
 Modify the `Tensor` values using subscript syntax:
 
-```
+```swift
 matrix[0, 0] = 1
 matrix[1, 1] = 1
 matrix[2, 2] = 1
@@ -70,7 +70,7 @@ Some basic binary operators that perform element-wise operations are listed belo
 
 **Note**: The `*` operator does element-wise multiplication of `Tensor` instances. For matrix multiplication use `matrixProduct(_:_:)` function.
 
-```
+```swift
 let matrix = Tensor(shape: [4, 4], element: 8)
 let anotherMatrix = Tensor(shape: [4, 4], element: 2)
 
