@@ -2,31 +2,32 @@
 
 ###### Tensor.swift
 
-This is a lightweight library written in Swift for offering `Tensor` data type. It was designed for simplicity in `Tensor` data manipulation. This library offers high level of flexibility in initializing the `Tensor` instance. And the `subscript` feature of Apple Swift makes it easy to access the data of `Tensor` instance. Many matrix and vector based functions are also provided to do some important specific operations on the data. 
+This is a lightweight library written in Swift for working with `Tensor` data. It was designed for simplicity and flexibility. It offers high flexibility in initializing the `Tensor` instance. And it is simple to access the data of `Tensor` instance with Swift's `subscript` feature. Many matrix and vector based functions are also provided to do some important specific operations on the data. 
 
 
 ## Initialization
 
-Creating a `Tensor` is simple:
+Creating a `Tensor` instance is pretty simple:
 
 ```swift
 let vector = Tensor(shape: [1, 4], elements: [1, 2, 3, 4])
-let matrix = Tensor(shape: [3, 3], element: 3)
+var matrix = Tensor(shape: [3, 3], element: 3)
 let tensor = Tensor(shape: [2, 2, 2]: element: 2)
 ```
 
 ### Flexible Initialization
 
-`Tensor` initializers allow for flexibile initialization:
-* `init(shape:)`: With this initializer one just have to provide the `shape` of the `Tensor` and leave the `elements` to be initialized by itself by placing `0` in every place of the `Tensor` instance.
-* `init(shape:element:)`: Provide the initializer with the `shape` of `Tensor` and provide only a single `element` and the initializer will repeat that `element` in every place of the `Tensor` instance.
-* `init(shape:elements:)`: This initializer requires the `shape` of the `Tensor` instance and a linear array of all the `elements` for this `Tensor` instance.
-* `init(elements:)`: In this initializer only an array of `elements` is required whereas the `shape` is set to the number of items in the `elements` array.
+`Tensor` structure's initializers allow flexibile initialization:
+
+* `init(shape:)`: With this initializer one just have to provide the `shape` and the initializer automatically initializes all the `elements` by placing `0` in every place.
+* `init(shape:element:)`: You must provide the initializer with the `shape` and a single `element` to initialize the `Tensor` instance by repeating `element` in all places.
+* `init(shape:elements:)`: This initializer requires the `shape` and a linear array of all the `elements` for the `Tensor` instance.
+* `init(elements:)`: The initializer requires only an array of `elements`. And the intializer sets the `shape` to number of `elements`.
 
 
 ## Accessing Values
 
-Swift offers a powerful feature called `subscript`. And in this library the basic `subscript` syntax is be used to access and modify the values present inside the `Tensor` instance. The multidimensional data is accessed using multiple subscript parameters separated by comma, ranging from 1 dimension to N dimensions `Tensor`, as follows:
+Swift offers a powerful feature called `subscript`. This library allows for the basic `subscript` syntax to be used for accessing and modifying the values of the `Tensor` instance. The `Tensor` data is accessed using multiple subscript parameters separated by comma, ranging from 1 dimension to N dimensions, as follows:
 
 ```swift
 visualize(matrix)
@@ -38,11 +39,9 @@ Prints
 3 3 3
 3 3 3
 **/
-```
 
-Modify the `Tensor` values using subscript syntax:
+// Modify the `Tensor` values using subscript syntax:
 
-```swift
 matrix[0, 0] = 1
 matrix[1, 1] = 1
 matrix[2, 2] = 1
@@ -61,9 +60,9 @@ Prints
 
 ## Some Important Methods, Computed Properties
 
-In addition to flexiblity in initialization, the `Tensor` also provides some useful and important methods and properties to manipulate the `Tensor` instance.
+In addition to flexiblity in initialization, the `Tensor` also provides some useful and important methods and properties to manipulate the `Tensor` instances.
 
-### Basic Binary Operators
+### Binary Operators
 
 Some basic binary operators that perform element-wise operations are listed below:
 
@@ -72,7 +71,7 @@ Some basic binary operators that perform element-wise operations are listed belo
 * `*` performs multiplication on two `Tensor` instances
 * `/` performs division between two `Tensor` instances
 
-**Note**: The `*` operator does element-wise multiplication of `Tensor` instances. For matrix multiplication use `matrixProduct(_:_:)` function.
+A simple example on usage of binary operators listed above:
 
 ```swift
 let matrixOne = Tensor(shape: [4, 4], element: 8)
@@ -91,13 +90,22 @@ Prints
 **/
 ```
 
+**Note**: The `*` operator does element-wise multiplication of `Tensor` instances. For matrix multiplication use `matrixProduct(_:_:)` function.
+
+
 ### Extras
 
-Some important functions and properties to manipulate `Tensor` instance's data are listed below:
+Some important functions and properties to manipulate `Tensor` instance data are listed below:
 
-* `matrixProduct(_:_:)`: It takes 2 matrix shaped `Tensor` instances as parameters and returns the resulting multiplied matrix `Tensor`
-* `visualize(_:)`: It takes 1 matrix or vector shaped `Tensor` instance and gives its visualization by printing it. It can be helpful in testing the elements' position in the `Tensor` by visualizing it
-* `transpose`: This is a computed property called on the `Tensor` instance to return the transposed `Tensor`. Note that it can be applied only on a matrix or vector shaped `Tensor` instance but not on more than 3-D `Tensor` because it does not make any sense
+* `matrixProduct(_:_:)`: It takes two matrix shaped `Tensor` instances as parameters and returns the resulting multiplied matrix `Tensor`
+* `visualize(_:)`: It takes one matrix or vector shaped `Tensor` instance and gives its visualization by printing it
+* `transpose`: This is a computed property called on the `Tensor` instance to return the transposed `Tensor`
+
+
+######**Important Notes** 
+
+1. The visualize(_:) function can be helpful in testing the elements' position in the `Tensor` (matrix or vector) by visualizing them
+2. Note that it can be applied only on a matrix or vector shaped `Tensor` instance but not on more than 3-D `Tensor` because it does not make any sense
 
 
 ## Contribution
