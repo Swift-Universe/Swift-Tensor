@@ -3,30 +3,15 @@
     File - Tensor.swift
     Created by Rahul Bhalley on 4/14/2017.
 **/
-
-///
-/// FIXED: Tensor Must Be Generic
-///
-
-////
-//// To make `Tensor`'s generic type placeholder, T, initializable for `Array` elements.
-////
 protocol Initable {
     init()
 }
-////
-//// To implement basic mathematical ops on Generic `Tensor`.
-////
 protocol BasicMathOps {
     static func + (lhs: Self, rhs: Self) -> Self
     static func - (lhs: Self, rhs: Self) -> Self
     static func * (lhs: Self, rhs: Self) -> Self
     static func / (lhs: Self, rhs: Self) -> Self
 }
-
-////
-//// Allowed data types for use in `Tensor`.
-////
 extension Int: BasicMathOps, Initable {}
 extension Float: BasicMathOps, Initable {}
 extension Double: BasicMathOps, Initable {}
@@ -79,15 +64,9 @@ struct Tensor<T: Initable & BasicMathOps> {
         - Shape Validation
     **/
     private func indexIsValid(_ index: Int) -> Bool {
-        ////
-        //// Index Validation
-        ////
         return index >= 0 && index < self.shape[0]
     }
     private func shapeIsValid(_ shape: [Int]) -> Bool {
-        ////
-        //// Shape Validation
-        ////
         for i in 0..<shape.count {
             if shape[i] < 0 || shape[i] >= self.shape[i] {
                 return false
@@ -101,9 +80,6 @@ struct Tensor<T: Initable & BasicMathOps> {
         - N-D subscript
     **/
     subscript(index: Int) -> T {
-        ////
-        //// Subscript overloading - 1-D
-        ////
         get {
             assert(indexIsValid(index), "Error: Index is not valid.")
             return self.elements[index]
@@ -113,18 +89,9 @@ struct Tensor<T: Initable & BasicMathOps> {
         }
     }
     subscript(shape: Int...) -> T {
-        ////
-        //// Subscript overloading - N-D
-        //// 
         get {
             assert(shapeIsValid(shape), "Error: shape is not valid.")
-            //// 
-            //// calling the 2-D subscript with row, column for 2D world
-            ////
             var indexValue = Double((shape[0] * self.shape[1]) + shape[1])
-            ////
-            //// calculate 1-D index for N-D world
-            ////
             for _ in 0..<shape.count - 2 {
                 var newIndexValue: Double = 1
                 for j in 0..<self.shape.count - 1 {
@@ -140,13 +107,7 @@ struct Tensor<T: Initable & BasicMathOps> {
         }
         set {
             assert(shapeIsValid(shape), "Error: shape is not valid.")
-            //// 
-            //// calling the 2-D subscript with row, column for 2D world
-            ////
             var indexValue = Double((shape[0] * self.shape[1]) + shape[1])
-            ////
-            //// calculate 1-D index for N-D world
-            ////
             for _ in 0..<shape.count - 2 {
                 var newIndexValue: Double = 1
                 for j in 0..<self.shape.count - 1 {
@@ -163,8 +124,7 @@ struct Tensor<T: Initable & BasicMathOps> {
     }
     /**
         Computed Properties to Compute:
-        - Transpose of a vector
-        - Transpose of a matrix
+        - Transpose of a vector and matrix
     **/
     var transpose: Tensor {
         assert(self.shape.count == 2, "Error: Must be a vector (shape = [1, ?] or [?, 1]) or matrix for transpose.")
@@ -218,7 +178,7 @@ extension Tensor {
     static func + (lhs: Tensor, rhs: Tensor) -> Tensor {
         var output = [T]()
         var outputTensor = Tensor<T>(shape: [0], elements: [T()])
-        if lhs.shape == rhs.shape { //// isMatrix(lhs) && isMatrix(rhs) satisfied here
+        if lhs.shape == rhs.shape { //// lhs.isMatrix && rhs.isMatrix satisfied here
             for i in 0..<lhs.size {	
                 output.append(lhs.elements[i] + rhs.elements[i]) 
             }
@@ -245,7 +205,7 @@ extension Tensor {
     static func - (lhs: Tensor, rhs: Tensor) -> Tensor {
         var output = [T]()
         var outputTensor = Tensor<T>(shape: [0], elements: [T()])
-        if lhs.shape == rhs.shape { //// isMatrix(lhs) && isMatrix(rhs) satisfied here
+        if lhs.shape == rhs.shape { //// lhs.isMatrix && rhs.isMatrix satisfied here
             for i in 0..<lhs.size {	
                 output.append(lhs.elements[i] + rhs.elements[i]) 
             }
@@ -287,7 +247,7 @@ extension Tensor {
     - matmul(_:_:) - Matrix Multiplication
 **/
 ///
-/// FIX: matrixProduct(_:_:) Must Be Generic
+/// FIX: matrixProduct(_:_:) must be generic
 ///
 func matrixProduct(_ matrixA: Tensor<Double>, _ matrixB: Tensor<Double>) -> Tensor<Double> {
     assert(matrixA.shape.count == 2 && matrixB.shape.count == 2, "Error: Must be a matrix.")
