@@ -2,7 +2,7 @@
 
 ###### Tensor.swift
 
-This is a lightweight library written in Swift for working with `Tensor` data. It was designed for simplicity and flexibility. It offers high flexibility in initializing the `Tensor` instance. And it is simple to access the data of `Tensor` instance with Swift's `subscript` feature. Many matrix and vector based functions are also provided to do some important specific operations on the data. 
+This is a super lightweight library written in Swift for working with `Tensor` data. It was designed for simplicity and flexibility. It offers high flexibility in initializing the `Tensor` instance. And it is simple to access the data of `Tensor` instance with Swift's `subscript` feature. Many matrix and vector based functions are also provided to do some important specific operations on the data. 
 
 
 ## Initialization
