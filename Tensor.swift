@@ -248,7 +248,7 @@ extension Tensor {
     - matmul(_:_:) - Matrix Multiplication
 **/
 ///
-/// FIX: matrixProduct(_:_:) must be generic
+/// TODO: Make matrixProduct(_:_:) generic
 ///
 func matrixProduct(_ matrixA: Tensor<Double>, _ matrixB: Tensor<Double>) -> Tensor<Double> {
     assert(matrixA.shape.count == 2 && matrixB.shape.count == 2, "Error: Must be a matrix.")
