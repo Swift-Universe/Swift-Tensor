@@ -1,6 +1,7 @@
 /**
     Project - Swift-Tensor
     File - Tensor.swift
+
     Created by Rahul Bhalley on 4/14/2017.
 **/
 protocol Initable {
@@ -48,7 +49,7 @@ struct Tensor<T: Initable & BasicMathOps> {
             for i in shape { count *= i }
             return count
         }
-    elements = Array<T>(repeating: element, count: length)
+        elements = Array<T>(repeating: element, count: length)
     }
     init(shape axes: [Int], elements: [T]) {
         self.axes = axes
