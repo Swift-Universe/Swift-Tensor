@@ -1,9 +1,12 @@
 /**
     Project - Swift-Tensor
     File - Tensor.swift
-
     Created by Rahul Bhalley on 4/14/2017.
 **/
+
+///
+/// FIXED: Tensor Must Be Generic
+///
 
 ////
 //// To make `Tensor`'s generic type placeholder, T, initializable for `Array` elements.
@@ -34,15 +37,15 @@ struct Tensor<T: Initable & BasicMathOps> {
     private var axes = [Int]()
     var shape: [Int] {
         get { return self.axes }
-        set {}
+        set { assert(newValue != [], "Error: Shape must not be empty.") }
     }
     var rank: Int { return shape.count }
     /**
     Overloaded Initializers:
-     - init(shape:)            - `zeros` in all places of `Tensor` with `shape`.
-     - init(shape:element:)    - repeating `element` in all places of `Tensor` with `shape`.
-     - init(shape:elements:)   - `elements` of `Tensor` with `shape`.
-     - init(elements:)         - `elements` of 1-D `Tensor` with `shape` = [elements.count]. 
+     - init(shape:)             - `zeros` in all places of `Tensor` with `shape`.
+     - init(shape:element:)     - repeating `element` in all places of `Tensor` with `shape`.
+     - init(shape:elements:)    - `elements` of `Tensor` with `shape`.
+     - init(elements:)          - `elements` of 1-D `Tensor` with `shape` = [elements.count]. 
     **/
     init(shape axes: [Int]) {
         self.axes = axes
@@ -60,7 +63,7 @@ struct Tensor<T: Initable & BasicMathOps> {
             for i in shape { count *= i }
             return count
         }
-        elements = Array<T>(repeating: element, count: length)
+    elements = Array<T>(repeating: element, count: length)
     }
     init(shape axes: [Int], elements: [T]) {
         self.axes = axes
@@ -75,13 +78,13 @@ struct Tensor<T: Initable & BasicMathOps> {
         - Index Validation
         - Shape Validation
     **/
-    func indexIsValid(_ index: Int) -> Bool {
+    private func indexIsValid(_ index: Int) -> Bool {
         ////
         //// Index Validation
         ////
         return index >= 0 && index < self.shape[0]
     }
-    func shapeIsValid(_ shape: [Int]) -> Bool {
+    private func shapeIsValid(_ shape: [Int]) -> Bool {
         ////
         //// Shape Validation
         ////
@@ -93,7 +96,7 @@ struct Tensor<T: Initable & BasicMathOps> {
         return true
     }
     /**
-        Subscripts Overloading to Access Tensor Values (Settable, Gettable Computed Properties):
+        Subscripts Overloading to Access Tensor Values (Settable, Gettable Computed Properties)
         - 1-D subscript
         - N-D subscript
     **/
@@ -166,10 +169,10 @@ struct Tensor<T: Initable & BasicMathOps> {
     var transpose: Tensor {
         assert(self.shape.count == 2, "Error: Must be a vector (shape = [1, ?] or [?, 1]) or matrix for transpose.")
         var newShape = [Int]()
-        if isVector(self) { 
+        if self.isVector { 
             newShape = shape.reversed()
             return Tensor(shape: newShape, elements: self.elements)
-        } else if isMatrix(self) {
+        } else if self.isMatrix {
             var transposedMatrix = self
             for row in 0..<self.shape[0] {
                 for column in 0..<self.shape[1] {
@@ -180,6 +183,26 @@ struct Tensor<T: Initable & BasicMathOps> {
         } else {
             print("Error: Must be a vector (shape = [1, ?] or [?, 1]) or matrix for transpose.")
             return self
+        }
+    }
+    /**
+        Tensor Type Validation Computed Properties:
+        - isMatrix
+        - isVector
+    **/
+    fileprivate var isMatrix: Bool {
+        if shape.count == 2 && shape[0] != 1 && shape[1] != 1 { 
+            return true 
+        }
+        return false
+    }
+    fileprivate var isVector: Bool {
+        if shape[0] == 1 || shape[1] == 1 { 
+            return true 
+            } else if shape[0] == 1 && shape[1] == 1 {
+            return false
+        } else {
+            return false
         }
     }
 }
@@ -200,7 +223,7 @@ extension Tensor {
                 output.append(lhs.elements[i] + rhs.elements[i]) 
             }
             outputTensor = Tensor(shape: lhs.shape, elements: output)	
-        } else if isVector(lhs) && isMatrix(rhs) {
+        } else if lhs.isVector && rhs.isMatrix {
             assert(lhs.shape[0] == 1, "Error: For matrix and vector addition, the shape of vector must be [1, ?]. Hint: use transpose(_:)")
             for row in 0..<rhs.shape[0] {
                 for column in 0..<lhs.shape[1] { // to make sure algorithm's idea is correct.
@@ -208,7 +231,7 @@ extension Tensor {
                 }
             }
             outputTensor = Tensor(shape: rhs.shape, elements: output)
-        } else if isMatrix(lhs) && isVector(rhs) {
+        } else if lhs.isMatrix && rhs.isVector {
             assert(rhs.shape[0] == 1, "Error: For matrix and vector addition, the shape of vector must be [1, ?]. Hint: use transpose(_:)")
             for row in 0..<lhs.shape[0] {
                 for column in 0..<rhs.shape[1] { // to make sure algorithm's idea is correct.
@@ -227,7 +250,7 @@ extension Tensor {
                 output.append(lhs.elements[i] + rhs.elements[i]) 
             }
             outputTensor = Tensor(shape: lhs.shape, elements: output)	
-        } else if isVector(lhs) && isMatrix(rhs) {
+            } else if lhs.isVector && rhs.isMatrix {
             assert(lhs.shape[0] == 1, "Error: For matrix and vector addition, the shape of vector must be [1, ?]. Hint: use transpose(_:)")
             for row in 0..<rhs.shape[0] {
                 for column in 0..<lhs.shape[1] { // to make sure algorithm's idea is correct.
@@ -235,7 +258,7 @@ extension Tensor {
                 }
             }
             outputTensor = Tensor(shape: rhs.shape, elements: output)
-        } else if isMatrix(lhs) && isVector(rhs) {
+        } else if lhs.isMatrix && rhs.isVector {
             assert(rhs.shape[0] == 1, "Error: For matrix and vector addition, the shape of vector must be [1, ?]. Hint: use transpose(_:)")
             for row in 0..<lhs.shape[0] {
                 for column in 0..<rhs.shape[1] { // to make sure algorithm's idea is correct.
@@ -260,27 +283,6 @@ extension Tensor {
     }
 }
 /**
-    Tensor Type Validation Functions:
-    - isMatrix(_:)
-    - isVector(_:)
-**/
-func isMatrix<T: BasicMathOps>(_ tensor: Tensor<T>) -> Bool {
-    if tensor.shape.count == 2 && tensor.shape[0] != 1 && tensor.shape[1] != 1 { 
-        return true 
-    }
-    return false
-}
-func isVector<T: BasicMathOps>(_ tensor: Tensor<T>) -> Bool {
-    if tensor.shape[0] == 1 || tensor.shape[1] == 1 { 
-        return true 
-    } else if tensor.shape[0] == 1 && tensor.shape[1] == 1 {
-        return false
-    } else {
-        return false
-    }
-}
-
-/**
     Tensor Mathematical Functions:
     - matmul(_:_:) - Matrix Multiplication
 **/
@@ -293,7 +295,7 @@ func matrixProduct(_ matrixA: Tensor<Double>, _ matrixB: Tensor<Double>) -> Tens
     var result = [Double]()
     for row in 0..<matrixA.shape[0] {
         for column in 0..<matrixB.shape[1] {
-            var product: Double = 0.0
+            var product = 0.0
             for x in 0..<matrixA.shape[1] {
                 product += matrixA[row, x] * matrixB[x, column]
             }
