@@ -68,9 +68,7 @@ Some basic binary operators that perform element-wise operations are listed belo
 * `*` performs multiplication on two `Tensor` instances
 * `/` performs division between two `Tensor` instances
 
-####Note 
-
-The `*` operator does element-wise multiplication of `Tensor` instances. For matrix multiplication use `matrixProduct(_:_:)` function.
+**Note**: The `*` operator does element-wise multiplication of `Tensor` instances. For matrix multiplication use `matrixProduct(_:_:)` function.
 
 ```
 let matrix = Tensor(shape: [4, 4], element: 8)
