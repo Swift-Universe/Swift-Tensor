@@ -110,7 +110,7 @@ We welcome the contributions. You may pull a request to add new features or for 
 * `////` have been used for comments
 * `///` is used as a TODO comment. For instance, `/// TODO: Make matrixProduct(_:_:) generic`
 
-This project aims to grow with more operations and performance optimizations which are important to `Tensor` data type including any other data type representable by it. Better and complete documentation is coming soon.
+This project aims to grow with more operations and performance optimizations which are important to `Tensor` data type including any other data type representable by it. 
 
 > We aim to grow this project into a complete tool for performing insane deep learning tasks!
 
