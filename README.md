@@ -15,7 +15,7 @@ Creating a `Tensor` instance is pretty simple:
 ```swift
 let vector = Tensor(shape: [1, 4], elements: [1, 2, 3, 4])  // a vector, 1-D `Tensor`
 var matrix = Tensor(shape: [3, 3], element: 3)              // a matrix, 2-D `Tensor`
-let tensor = Tensor(shape: [2, 2, 2, 2], element: 2)        // a tensor, 4-D `Tensor`
+let tensor = Tensor(shape: [3, 3, 3, 4], element: 2)        // a tensor, 4-D `Tensor`
 ```
 
 ### Flexible Initialization
@@ -107,10 +107,10 @@ Extra functions and properties to manipulate `Tensor` instance data are listed b
 ## Contribution
 
 Contributions are welcome. Please comply with the existing coding style as it helps in easily understanding the code. For instance,
-* `////` have been used to comment 
-* `///` is used as a comment for TODO. One such example is `/// TODO: Make matrixProduct(_:_:) generic`
+* `////` have been used for comments
+* `///` is used as a comment for TODO. For instance, `/// TODO: Make matrixProduct(_:_:) generic`
 
-This project aims to grow with more operations which are important to `Tensor` data type including any other data type representable by it. You may pull a request to add new features or for fixing bugs. Better and complete documentation is coming soon.
+This project aims to grow with more operations and performance optimizations which are important to `Tensor` data type including any other data type representable by it. You may pull a request to add new features or for fixing bugs. Better and complete documentation is coming soon.
 
 #### We hope to grow this project into a complete tool for performing insane deep learning tasks!
 
