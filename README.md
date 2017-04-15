@@ -66,9 +66,9 @@ visualize(matrix)
 **/
 
 // Modify the `Tensor` values using subscript syntax:
-matrix[0, 0] = 1
-matrix[1, 1] = 1
-matrix[2, 2] = 1
+for i in 0..<min(matrix.shape[0], matrix.shape[1]) {
+    matrix[i, i] = 1
+}
 
 visualize(matrix)
 /** Prints
@@ -120,7 +120,7 @@ Extra functions and properties to manipulate `Tensor` instance data are listed b
 * `transpose`: This is a computed property called on the `Tensor` instance to return the transposed `Tensor`
 
 
-#### Important Notes
+#### Notes
 
 * `visualize(_:)` function can be helpful in examining the position of `elements` in the `Tensor` instance (matrix or vector) by visualizing them
 * `transpose` can be applied on a matrix or vector shaped `Tensor` instance only
