@@ -13,9 +13,9 @@ Moreover, `Tensor` automatically infers its type from the type of `elements` you
 Creating a `Tensor` instance is pretty simple:
 
 ```swift
-let vector = Tensor(shape: [1, 4], elements: [1, 2, 3, 4])  // a vector, 1-D `Tensor`
-var matrix = Tensor(shape: [3, 3], element: 3)              // a matrix, 2-D `Tensor`
-let tensor = Tensor(shape: [3, 3, 3, 4], element: 2)        // a tensor, 4-D `Tensor`
+let vector = Tensor(shape: [1, 4], elements: [1, 2, 3, 4])  // 1-D `Tensor`, shape 1 x 4
+var matrix = Tensor(shape: [3, 3], element: 3)              // 2-D `Tensor`, shape 3 x 3
+let tensor = Tensor(shape: [3, 3, 3, 4], element: 2)        // 4-D `Tensor`, shape 3 x 3 x 3 x 4
 ```
 
 ### Flexible Initialization
@@ -112,7 +112,7 @@ Contributions are welcome. Please comply with the existing coding style as it he
 
 This project aims to grow with more operations and performance optimizations which are important to `Tensor` data type including any other data type representable by it. You may pull a request to add new features or for fixing bugs. Better and complete documentation is coming soon.
 
-#### We hope to grow this project into a complete tool for performing insane deep learning tasks!
+> We hope to grow this project into a complete tool for performing insane deep learning tasks!
 
 ## Contact 
 
