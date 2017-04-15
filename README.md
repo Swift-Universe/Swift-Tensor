@@ -25,10 +25,24 @@ let tensor = Tensor(shape: [3, 3, 3, 4], element: 2)        // 4-D Tensor, shape
 * `init(shape:)`: Must provide the `shape` and `Tensor` instance is automatically initialized with `0` in every place
 ```swift
 var matrix = Tensor<Int>(shape: [3, 3])
+
+visualize(matrix)
+/** Prints
+0 0 0 
+0 0 0 
+0 0 0 
+**/
 ```
 * `init(shape:element:)`: Must provide the `shape` and an `element` to initialize the `Tensor` instance with `element` in all places
 ```swift
 var identityMatrix = Tensor(shape: [3, 3], element: 1)
+
+visualize(identityMatrix)
+/** Prints
+1 1 1 
+1 1 1 
+1 1 1
+**/
 ```
 * `init(shape:elements:)`: Must provide the `shape` and the `elements` array to initialize `Tensor` with `shape` and `elements` in their respective places
 ```swift
@@ -45,7 +59,6 @@ var anotherLinear = Tensor(elements: [1, 2, 3, 4, 5, 6, 7])
 
 ```swift
 visualize(matrix)
-
 /** Prints
 3 3 3
 3 3 3
@@ -58,7 +71,6 @@ matrix[1, 1] = 1
 matrix[2, 2] = 1
 
 visualize(matrix)
-
 /** Prints
 1 3 3
 3 1 3
@@ -85,10 +97,9 @@ A simple example on the usage of binary operators listed above:
 ```swift
 let matrixOne = Tensor(shape: [4, 4], element: 8)
 let matrixTwo = Tensor(shape: [4, 4], element: 2)
-
 let result = matrixOne / matrixTwo
-visualize(result)
 
+visualize(result)
 /** Prints
 4 4 4 4 
 4 4 4 4 
