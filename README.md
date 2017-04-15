@@ -100,7 +100,7 @@ Extra functions and properties to manipulate `Tensor` instance data are listed b
 
 #### Important Notes
 
-* The visualize(_:) function can be helpful in testing the elements' position in the `Tensor` (matrix or vector) by visualizing them
+* The `visualize(_:)` function can be helpful in examining the position of `elements` in the `Tensor` instance (matrix or vector) by visualizing them
 * Note that `transpose` can be applied on a matrix or vector shaped `Tensor` instance only
 
 
