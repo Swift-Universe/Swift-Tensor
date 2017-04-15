@@ -65,7 +65,7 @@ visualize(matrix)
 3 3 3
 **/
 
-// Modify the `Tensor` values using subscript syntax:
+// Modify the matrix's values using subscript syntax:
 for i in 0..<min(matrix.shape[0], matrix.shape[1]) {
     matrix[i, i] = 1
 }
