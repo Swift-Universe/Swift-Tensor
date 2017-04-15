@@ -106,13 +106,13 @@ Extra functions and properties to manipulate `Tensor` instance data are listed b
 
 ## Contribution
 
-Contributions are welcome. Please comply with the existing coding style as it helps in easily understanding the code. For instance,
+We welcome the contributions. You may pull a request to add new features or for fixing bugs. Please comply with the existing coding style as it helps in easily understanding the code. For instance,
 * `////` have been used for comments
-* `///` is used as a comment for TODO. For instance, `/// TODO: Make matrixProduct(_:_:) generic`
+* `///` is used as a TODO comment. For instance, `/// TODO: Make matrixProduct(_:_:) generic`
 
-This project aims to grow with more operations and performance optimizations which are important to `Tensor` data type including any other data type representable by it. You may pull a request to add new features or for fixing bugs. Better and complete documentation is coming soon.
+This project aims to grow with more operations and performance optimizations which are important to `Tensor` data type including any other data type representable by it. Better and complete documentation is coming soon.
 
-> We hope to grow this project into a complete tool for performing insane deep learning tasks!
+> We aim to grow this project into a complete tool for performing insane deep learning tasks!
 
 ## Contact 
 
