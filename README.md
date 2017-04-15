@@ -13,9 +13,9 @@ Moreover, `Tensor` automatically infers its type from the type of `elements` you
 Creating a `Tensor` instance is pretty simple:
 
 ```swift
-let vector = Tensor(shape: [1, 4], elements: [1, 2, 3, 4])  // 1-D `Tensor`, shape 1 x 4
-var matrix = Tensor(shape: [3, 3], element: 3)              // 2-D `Tensor`, shape 3 x 3
-let tensor = Tensor(shape: [3, 3, 3, 4], element: 2)        // 4-D `Tensor`, shape 3 x 3 x 3 x 4
+let vector = Tensor(shape: [1, 4], elements: [1, 2, 3, 4])  // 1-D Tensor, shape 1 x 4
+var matrix = Tensor(shape: [3, 3], element: 3)              // 2-D Tensor, shape 3 x 3
+let tensor = Tensor(shape: [3, 3, 3, 4], element: 2)        // 4-D Tensor, shape 3 x 3 x 3 x 4
 ```
 
 ### Flexible Initialization
@@ -23,10 +23,21 @@ let tensor = Tensor(shape: [3, 3, 3, 4], element: 2)        // 4-D `Tensor`, sha
 `Tensor` data type's initializers allow flexible initialization:
 
 * `init(shape:)`: Must provide the `shape` and `Tensor` instance is automatically initialized with `0` in every place
+```swift
+var matrix = Tensor<Int>(shape: [3, 3])
+```
 * `init(shape:element:)`: Must provide the `shape` and an `element` to initialize the `Tensor` instance with `element` in all places
+```swift
+var identityMatrix = Tensor(shape: [3, 3], element: 1)
+```
 * `init(shape:elements:)`: Must provide the `shape` and the `elements` array to initialize `Tensor` with `shape` and `elements` in their respective places
+```swift
+var linear = Tensor(shape: [3], elements: [5, 9, 1])
+```
 * `init(elements:)`: Must provide the `elements` and the `shape` is automatically set equal to the number of `elements`
-
+```swift
+var anotherLinear = Tensor(elements: [1, 2, 3, 4, 5, 6, 7])
+```
 
 ## Accessing Values
 
