@@ -18,7 +18,7 @@ var matrix = Tensor(shape: [3, 3], element: 3)              // 2-D Tensor, shape
 let tensor = Tensor(shape: [3, 3, 3, 4], element: 2)        // 4-D Tensor, shape 3 x 3 x 3 x 4
 ```
 
-### Flexible Initialization
+### Initialization Flexibility
 
 `Tensor` data type's initializers allow flexible initialization:
 
