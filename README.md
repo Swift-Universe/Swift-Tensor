@@ -134,8 +134,6 @@ We welcome the contributions. You may pull a request to add important features t
 
 This project aims to grow with more operations and performance optimizations which are important to `Tensor` data calculations including any other data type representable by it. 
 
-> We aim to grow this project into a complete tool for performing insane deep learning tasks!
-
 ## Contact 
 
 You may contact me directly at [rahulbhalley@icloud.com](rahulbhalley@icloud.com)
