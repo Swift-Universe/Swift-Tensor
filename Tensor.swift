@@ -29,7 +29,7 @@ struct Tensor<T: Initable & BasicMathOps> {
     /**
         Overloaded Initializers:
         - init(shape:)             - `zeros` in all places of `Tensor` with `shape`.
-        - init(shape:element:)     - repeating `element` in all places of `Tensor` with `shape`.
+        - init(shape:element:)     - `element` repeated in all places of `Tensor` with `shape`.
         - init(shape:elements:)    - `elements` of `Tensor` with `shape`.
         - init(elements:)          - `elements` of 1-D `Tensor` with `shape` = [elements.count]. 
     **/
