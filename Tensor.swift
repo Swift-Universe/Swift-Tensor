@@ -208,14 +208,14 @@ extension Tensor {
         var outputTensor = Tensor<T>(shape: [0], elements: [T()])
         if lhs.shape == rhs.shape { //// lhs.isMatrix && rhs.isMatrix satisfied here
             for i in 0..<lhs.size {	
-                output.append(lhs.elements[i] + rhs.elements[i]) 
+                output.append(lhs.elements[i] - rhs.elements[i]) 
             }
             outputTensor = Tensor(shape: lhs.shape, elements: output)	
             } else if lhs.isVector && rhs.isMatrix {
             assert(lhs.shape[0] == 1, "Error: For matrix and vector addition, the shape of vector must be [1, ?]. Hint: use transpose(_:)")
             for row in 0..<rhs.shape[0] {
                 for column in 0..<lhs.shape[1] { // to make sure algorithm's idea is correct.
-                    output.append(lhs[0, column] + rhs[row, column])
+                    output.append(lhs[0, column] - rhs[row, column])
                 }
             }
             outputTensor = Tensor(shape: rhs.shape, elements: output)
@@ -223,7 +223,7 @@ extension Tensor {
             assert(rhs.shape[0] == 1, "Error: For matrix and vector addition, the shape of vector must be [1, ?]. Hint: use transpose(_:)")
             for row in 0..<lhs.shape[0] {
                 for column in 0..<rhs.shape[1] { // to make sure algorithm's idea is correct.
-                    output.append(lhs[row, column] + rhs[0, column])
+                    output.append(lhs[row, column] - rhs[0, column])
                 }
             }
             outputTensor = Tensor(shape: lhs.shape, elements: output)
