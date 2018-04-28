@@ -136,4 +136,4 @@ This project aims to grow with more operations and performance optimizations whi
 
 ## Contact 
 
-You may contact me directly at `rahulbhalley[at]icloud[dot]com`
+You may contact me directly at my [email](mailto: rahulbhalley@icloud.com)
