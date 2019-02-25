@@ -136,4 +136,4 @@ This project aims to grow with more operations and performance optimizations whi
 
 ## Contact 
 
-You may contact me directly at rahulbhalley@icloud.com
+For queries contact me at `[first name][second name][at][protonmail][dot][com]`.
