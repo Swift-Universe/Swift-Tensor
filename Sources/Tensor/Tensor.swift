@@ -5,7 +5,7 @@
 //  Created by Rahul Bhalley on 01/08/19.
 //
 
-public protocol Initiable {
+public protocol Initable {
     init()
 }
 
@@ -16,15 +16,15 @@ public protocol BasicMathOps {
     static func / (left: Self, right: Self) -> Self
 }
 
-extension Int:      BasicMathOps, Initiable {}
-extension Float:    BasicMathOps, Initiable {}
-extension Double:   BasicMathOps, Initiable {}
+extension Int:      BasicMathOps, Initable {}
+extension Float:    BasicMathOps, Initable {}
+extension Double:   BasicMathOps, Initable {}
 
-public struct Tensor<T: Initiable & BasicMathOps> {
+public struct Tensor<T: Initable & BasicMathOps> {
     var elements = [T]()
     var size: Int { return elements.count }
     private var axes = [Int]()
-    var shape: [Int] {
+    public var shape: [Int] {
         get { return self.axes }
         set { precondition(newValue != [], "Error: Shape must not be empty.") }
     }
@@ -311,19 +311,30 @@ extension Tensor {
     }
 }
 
+extension Tensor {
+    public static func * <T: BasicMathOps & Initable> (element: T, tensor: Tensor<T>) -> Tensor<T> {
+        var outputs = [T]()
+        /// Apply operator on each element of `Tensor`.
+        for tensorElement in tensor.elements {
+            outputs.append(element * tensorElement)
+        }
+        return Tensor<T>(shape: tensor.shape, elements: outputs)
+    }
+}
+
 /**
  Tensor operations:
- - `matrixProduct(_:_:)`: Matrix multuplication.
+ - `matrixProduct(_:_:)`: Matrix multiplication.
  */
-/// TODO: Make `matrixProduct(_:_:)` generic.
+/// TODO: Make `matMul(_:_:)` generic.
 
-public func matrixProduct(_ matrixA: Tensor<Double>, _ matrixB: Tensor<Double>) -> Tensor<Double> {
+public func matMul(_ matrixA: Tensor<Float>, _ matrixB: Tensor<Float>) -> Tensor<Float> {
     assert(matrixA.shape.count == 2 && matrixB.shape.count == 2, "Error: Must be a matrix.")
     assert(matrixA.shape[1] == matrixB.shape[0], "Error: Column and row size condition not staisfied.")
-    var result = [Double]()
+    var result = [Float]()
     for row in 0..<matrixA.shape[0] {
         for column in 0..<matrixB.shape[1] {
-            var product: Double = 0
+            var product: Float = 0
             for x in 0..<matrixA.shape[1] {
                 product += matrixA[row, x] * matrixB[x, column]
             }
@@ -348,3 +359,8 @@ public func visualize<T>(_ matrix: Tensor<T>) {
         print()
     }
 }
+
+
+/**
+ Retroactive modeling for `Tensor`
+ */
